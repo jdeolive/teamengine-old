@@ -1663,15 +1663,20 @@ public class TECore implements Runnable {
 //System.out.println(this.formHtml);
 
         if (!web) {
-            int width = 700;
-            int height = 500;
-            attr = (Attr) attrs.getNamedItem("width");
-            if (attr != null)
-                width = Integer.parseInt(attr.getValue());
-            attr = (Attr) attrs.getNamedItem("height");
-            if (attr != null)
-                height = Integer.parseInt(attr.getValue());
-            SwingForm.create(name, width, height, this);
+            if (System.getProperty("cite.headless") != null) {
+                new HeadlessForm(this);
+            }
+            else {
+                int width = 700;
+                int height = 500;
+                attr = (Attr) attrs.getNamedItem("width");
+                if (attr != null)
+                    width = Integer.parseInt(attr.getValue());
+                attr = (Attr) attrs.getNamedItem("height");
+                if (attr != null)
+                    height = Integer.parseInt(attr.getValue());
+                SwingForm.create(name, width, height, this);
+            }
         }
 
         while (formResults == null) {
