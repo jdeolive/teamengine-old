@@ -5,6 +5,7 @@ build/
 dist/
 target/
 
+/apps/engine/bin
 /build.properties
 /components
 /scripts
