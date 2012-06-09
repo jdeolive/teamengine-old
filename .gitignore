@@ -1,3 +1,14 @@
 .classpath
 .project
+
+build/
+dist/
 target/
+
+/build.properties
+/components
+/scripts
+/setup/*.war
+/setup/UserFilesRealm/UserFilesRealm.jar
+/webapps
+/zips
