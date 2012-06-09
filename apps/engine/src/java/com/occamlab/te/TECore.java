@@ -1663,7 +1663,7 @@ public class TECore implements Runnable {
 //System.out.println(this.formHtml);
 
         if (!web) {
-            if (System.getProperty("cite.headless") != null) {
+            if (Boolean.getBoolean("cite.headless")) {
                 new HeadlessForm(this);
             }
             else {
