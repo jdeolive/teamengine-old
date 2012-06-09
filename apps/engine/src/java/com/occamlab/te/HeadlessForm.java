@@ -12,6 +12,9 @@ public class HeadlessForm {
         String sessionId = teCore.getTestPath();
         File f = new File("forms/" + sessionId + ".xml");
         System.out.println("Checking for " + f.getAbsolutePath());
+        if (!f.exists() && sessionId.contains("/")) {
+            f = new File("forms/yes.xml");
+        }
         if (!f.exists()) {
             throw new RuntimeException("Could not find form file:" + f.getAbsolutePath());
         }
