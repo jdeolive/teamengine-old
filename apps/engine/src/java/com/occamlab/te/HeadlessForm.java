@@ -9,11 +9,15 @@ public class HeadlessForm {
 
     public HeadlessForm(TECore teCore) {
         
+        String formRoot = System.getProperty("cite.headless.formroot");
+        if (formRoot == null) {
+            formRoot = "forms";
+        }
         String sessionId = teCore.getTestPath();
-        File f = new File("forms/" + sessionId + ".xml");
+        File f = new File(formRoot, sessionId + ".xml");
         System.out.println("Checking for " + f.getAbsolutePath());
         if (!f.exists() && sessionId.contains("/")) {
-            f = new File("forms/yes.xml");
+            f = new File(formRoot, "yes.xml");
         }
         if (!f.exists()) {
             throw new RuntimeException("Could not find form file:" + f.getAbsolutePath());
